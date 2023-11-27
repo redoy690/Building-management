@@ -1,9 +1,14 @@
-import React from 'react';
+
+import Coupon from '../Coupon/Coupon';
+import Slider from '../Slider/Slider';
 
 const Home = () => {
     return (
         <div>
-            this is home
+            
+            <Slider></Slider>
+            <Coupon></Coupon>
+
         </div>
     );
 };

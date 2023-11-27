@@ -79,7 +79,7 @@ const ManageMember = () => {
 
             </div>
             <div>
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto w-[280px] md:w-full">
                     <table className="table table-zebra">
                         {/* head */}
                         <thead>

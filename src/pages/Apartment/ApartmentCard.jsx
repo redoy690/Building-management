@@ -74,6 +74,7 @@ const ApartmentCard = ({ apartment }) => {
                     </div>
                 </div>
             </div>
+            
         </div>
     );
 };

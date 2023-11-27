@@ -3,9 +3,10 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form"
 import UseallCoupon from "../../../hooks/UseallCoupon";
+import ManageCouponCard from "./ManageCouponCard";
 
 const ManageCoupon = () => {
-    const [allcoupon,refetch] = UseallCoupon()
+    const [allcoupon, refetch] = UseallCoupon()
     const axiosSecure = useAxiosSecure()
     const { register, handleSubmit, reset } = useForm()
     const onSubmit = (data) => {
@@ -34,7 +35,7 @@ const ManageCoupon = () => {
 
     return (
         <div>
-             {allcoupon.length}
+            {allcoupon.length}
 
             <div className="mt-10">
                 <a href="#my_modal_8" className="btn btn-outline">Add New Coupon</a>
@@ -73,7 +74,16 @@ const ManageCoupon = () => {
                 </div>
             </div>
 
-
+            <div>
+                <div className="mt-12">
+                    <h2 className="text-3xl font-bold text-center bg-slate-200 py-8">ALL RUNNING COUPON LIST</h2>
+                </div>
+                <div className="grid grid-cols-1 mt-4  gap-4">
+                    {
+                        allcoupon.map(coupon =><ManageCouponCard key={coupon._id} coupon={coupon} refetch={refetch}></ManageCouponCard> )
+                    }
+                </div>
+            </div>
 
 
 

@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Usealluser from "../../../hooks/Usealluser";
+import moment from "moment";
 
 
 
@@ -21,7 +22,8 @@ const AggrementRequestCard = ({ item, refetch }) => {
     const handlereject = (_id) => {
         console.log(_id)
         const status = "rejected"
-        const updatestatus = { status }
+        const acceptdate = 'no date'
+        const updatestatus = { status, acceptdate }
 
         Swal.fire({
             title: 'Are you sure?',
@@ -54,7 +56,8 @@ const AggrementRequestCard = ({ item, refetch }) => {
     const handleaccept = (_id) => {
         console.log(_id)
         const status = "checked"
-        const updatestatus = { status }
+        const acceptdate = moment().format('D-MMM-YY, h:mma')
+        const updatestatus = { status, acceptdate }
 
         Swal.fire({
             title: 'Are you sure?',
