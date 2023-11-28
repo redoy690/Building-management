@@ -11,7 +11,7 @@ const useApartment = () => {
     const { data: apartment = [] } = useQuery({
         queryKey: ['apartment'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/apartment')
+            const res = await axiosPublic.get('/allapartment')
             return res.data
         }
     })

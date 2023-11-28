@@ -3,6 +3,9 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 
 import useApartment from "../../../hooks/useApartment";
 import Usealluser from "../../../hooks/Usealluser";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 
 const AdminProfile = () => {
@@ -11,28 +14,44 @@ const AdminProfile = () => {
     const photo = user?.photoURL || ''
     const name = user?.displayName || ''
     console.log(email)
+    const axiosSecure = useAxiosSecure()
+    const { data: payments = [] } = useQuery({
+        queryKey: ['payments', email],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/payments`)
+            return res.data
+        }
+    })
+
+    const totalPrice = payments.reduce((sum, item) => sum + item.paymentamount, 0)
+    console.log(totalPrice)
     // const [pendingapartment] = usePendingApartment()
     const [apartment] = useApartment()
     const [users] = Usealluser()
-    const bookedRoom = apartment.filter(item => item.booking == "closed")
-    const freeRoom = apartment.filter(item => item.booking == "open")
-    const totalRoomLength=(apartment.length)
-    const bookedRoomLength = (bookedRoom.length)
-    const freeRoomLength = (freeRoom.length)
-    const availableRoomPercent = (freeRoomLength/totalRoomLength)*100
-    const rentedRoomPercent=(bookedRoomLength/totalRoomLength)*100
-    const totalUser = users.filter(item=> item.role == "user")
-    const totalmember = users.filter(item=> item.role == "member")
-    const totalUserLength=(totalUser.length)
-    const totalMemberLength=(totalmember.length)
+
+    const bookedRoomLength = (payments.length)
+    const freeRoomLength = (apartment.length)
+    const totalRoomLength = (bookedRoomLength + freeRoomLength)
+    const availableRoomPercent = (freeRoomLength / totalRoomLength) * 100
+    const rentedRoomPercent = (bookedRoomLength / totalRoomLength) * 100
+    const totalUser = users.filter(item => item.role == "user")
+    const totalmember = users.filter(item => item.role == "member")
+    const totalUserLength = (totalUser.length)
+    const totalMemberLength = (totalmember.length)
+
+
     return (
         <div>
-            
+
             <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">Admin Profile Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 my-10">
+
                 <div className="mt-[10%]">
                     <h2 >User Name: {name}</h2>
                     <h2 className="mt-4" >Email: {email}</h2>
+                    <Link to='/dashboard/addapartment'>
+                        <button className="mt-4 btn btn-outline btn-primary">Add New Apartment</button>
+                    </Link>
                 </div>
                 <div>
                     <h2>Profile Picture:</h2>
@@ -45,69 +64,115 @@ const AdminProfile = () => {
 
 
             <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">Apartment Information</h2>
-       
 
-            <div>
-                <div className="flex border-2 border-pink-200 rounded-xl w-[295px] md:w-[500px] pl-6 py-2">
-                   <div className="w-[400px] border-r-2">
-                      <h2 className="text-lg md:text-2xl font-bold">TOTAL ROOMS IN DB</h2>
-                   </div>
-                   <div className="w-[120px] md:w-[80px]">
-                       <h2 className="text-lg md:text-2xl font-bold pl-6"> {totalRoomLength}</h2>
-                   </div>
+
+
+            <div className="mt-4">
+                <div className="flex items-center justify-center bg-gray-800 p-4 md:h-40">
+                    <div className="flex flex-col md:flex-row">
+                        <div className="bg-gray-700 flex items-start h-28 md:w-40 w-60 justify-center px-4 mx-0.5 my-0.5">
+                            <div className="flex-col">
+                                <div className="text-sm font-medium text-gray-400 my-2">TOTAL ROOMS</div>
+                                <div className="className flex  items-center">
+                                    <div className="text-3xl  font-bold text-gray-200">{totalRoomLength}</div>
+
+                                </div>
+                                <div className="text-sm font-medium text-gray-400 ">Rooms</div>
+                            </div>
+                        </div>
+                        <div className="bg-gray-700 flex items-start h-28 md:w-40 w-60 justify-center px-4 mx-0.5 my-0.5">
+                            <div className="flex-col">
+                                <div className="text-sm font-medium text-gray-400 my-2">FREE ROOMS</div>
+                                <div className="className flex items-center">
+                                    <div className="text-3xl font-bold text-gray-200">{freeRoomLength}</div>
+                                    <div className="flex items-center justify-between mx-2 px-0.5 py-0.5 rounded-xl text-green-500 font-medium ">
+                                        <div><ion-icon name="arrow-up-outline"></ion-icon></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div className="text-sm font-medium text-gray-400 ">Free Rooms</div>
+                            </div>
+                        </div>
+                        <div className="bg-gray-700 flex items-start h-28 md:w-40 w-60 justify-center px-4 mx-0.5 my-0.5">
+                            <div className="flex-col">
+                                <div className="text-sm font-medium text-gray-400 my-2">RENTED ROOMS</div>
+                                <div className="className flex items-center">
+                                    <div className="text-3xl font-bold text-gray-200">{bookedRoomLength}</div>
+                                    <div className="flex items-center justify-between mx-2 px-0.5 py-0.5 rounded-xl text-violet-500 font-medium ">
+                                        <div><ion-icon name="arrow-down-outline"></ion-icon></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div className="text-sm font-medium text-gray-400 ">Rented</div>
+                            </div>
+                        </div>
+                        <div className="bg-gray-700 flex items-start h-28 md:w-40 w-60 justify-center px-4 mx-0.5 my-0.5">
+                            <div className="flex-col">
+                                <div className="text-sm font-medium text-gray-400 my-2">FREE ROOMS %</div>
+                                <div className="className flex items-center">
+                                    <div className="text-3xl font-bold text-gray-200">{Math.floor(availableRoomPercent)}%</div>
+
+                                </div>
+                                <div className="text-sm font-medium text-gray-400 ">Percentage</div>
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div>
-                <div className="flex border-2 border-pink-200 rounded-xl w-[295px] md:w-[500px] pl-6 py-2 mt-2">
-                   <div className="w-[400px] border-r-2">
-                      <h2 className="text-lg md:text-2xl font-bold">TOTAL AVAILABLE ROOMS</h2>
-                   </div>
-                   <div className="w-[120px] md:w-[80px]">
-                       <h2 className="text-lg md:text-2xl font-bold pl-6"> {freeRoomLength}</h2>
-                   </div>
+            </div>
+
+
+            <div className="">
+                <div className="flex items-center justify-center bg-gray-800 p-4 md:h-40">
+                    <div className="flex flex-col md:flex-row">
+                        <div className="bg-gray-700 flex items-start h-28 md:w-40 w-60 justify-center px-4 mx-0.5 my-0.5">
+                            <div className="flex-col">
+                                <div className="text-sm font-medium text-gray-400 my-2">RENTED ROOMS % </div>
+                                <div className="className flex items-center">
+                                    <div className="text-3xl font-bold text-gray-200">{Math.ceil(rentedRoomPercent)}%</div>
+
+                                </div>
+                                <div className="text-sm font-medium text-gray-400 ">Percentage</div>
+                            </div>
+                        </div>
+                        <div className="bg-gray-700 flex items-start h-28 md:w-40 w-60 justify-center px-4 mx-0.5 my-0.5">
+                            <div className="flex-col">
+                                <div className="text-sm font-medium text-gray-400 my-2">TOTAL MEMBERS</div>
+                                <div className="className flex items-center">
+                                    <div className="text-3xl font-bold text-gray-200">{totalMemberLength}</div>
+                                    <div className="flex items-center justify-between mx-2 px-0.5 py-0.5 rounded-xl text-green-500 font-medium ">
+                                        <div><ion-icon name="arrow-up-outline"></ion-icon></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div className="text-sm font-medium text-gray-400 ">members</div>
+                            </div>
+                        </div>
+                        <div className="bg-gray-700 flex items-start h-28 md:w-40 w-60 justify-center px-4 mx-0.5 my-0.5">
+                            <div className="flex-col">
+                                <div className="text-sm font-medium text-gray-400 my-2">TOTAL USERS</div>
+                                <div className="className flex items-center">
+                                    <div className="text-3xl font-bold text-gray-200">{totalUserLength}</div>
+
+                                </div>
+                                <div className="text-sm font-medium text-gray-400 ">users</div>
+                            </div>
+                        </div>
+                        <div className="bg-gray-700 flex items-start h-28 md:w-40 w-60 justify-center px-4 mx-0.5 my-0.5">
+                            <div className="flex-col">
+                                <div className="text-sm font-medium text-gray-400 my-2">TOTAL COLLECTION</div>
+                                <div className="className flex items-center">
+                                    <div className="text-3xl font-bold text-gray-200">{totalPrice}$</div>
+
+                                </div>
+                                <div className="text-sm font-medium text-gray-400 ">Dollar</div>
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div>
-                <div className="flex border-2 border-pink-200 rounded-xl w-[295px] md:w-[500px] pl-6 py-2 mt-2">
-                   <div className="w-[400px] border-r-2">
-                      <h2 className="text-lg md:text-2xl font-bold">TOTAL RENTED ROOMS</h2>
-                   </div>
-                   <div className="w-[120px] md:w-[80px]">
-                       <h2 className="text-lg md:text-2xl font-bold pl-6"> {bookedRoomLength}</h2>
-                   </div>
-                </div>
-                <div className="flex border-2 border-pink-200 rounded-xl w-[295px] md:w-[500px] pl-6 py-2 mt-2">
-                   <div className="w-[400px] border-r-2">
-                      <h2 className="text-base md:text-2xl font-bold">AVAILABLE ROOMS PERCENTAGE</h2>
-                   </div>
-                   <div className="w-[120px] md:w-[80px]">
-                       <h2 className="text-lg md:text-2xl font-bold pl-4">{Math.floor(availableRoomPercent)}% </h2>
-                   </div>
-                </div>
-               
-                <div className="flex border-2 border-pink-200 rounded-xl w-[295px] md:w-[500px] pl-6 py-2 mt-2">
-                   <div className="w-[400px] border-r-2">
-                      <h2 className="text-lg md:text-2xl font-bold">RENTED ROOMS PERCENTAGE</h2>
-                   </div>
-                   <div className="w-[120px] md:w-[80px]">
-                       <h2 className="text-lg md:text-2xl font-bold pl-4">{Math.ceil(rentedRoomPercent)}%</h2>
-                   </div>
-                </div>
-                <div className="flex border-2 border-pink-200 rounded-xl w-[295px] md:w-[500px] pl-6 py-2 mt-2">
-                   <div className="w-[400px] border-r-2">
-                      <h2 className="text-lg md:text-2xl font-bold">TOTAL USERS</h2>
-                   </div>
-                   <div className="w-[120px] md:w-[80px]">
-                       <h2 className="text-lg md:text-2xl font-bold pl-6"> {totalUserLength}</h2>
-                   </div>
-                </div>
-                <div className="flex border-2 border-pink-200 rounded-xl w-[295px] md:w-[500px] pl-6 py-2 mt-2">
-                   <div className="w-[400px] border-r-2">
-                      <h2 className="text-lg md:text-2xl font-bold">TOTAL MEMBERS</h2>
-                   </div>
-                   <div className="w-[120px] md:w-[80px]">
-                       <h2 className="text-lg md:text-2xl font-bold pl-6"> {totalMemberLength}</h2>
-                   </div>
-                </div>
-               
-                
-                
             </div>
 
         </div>

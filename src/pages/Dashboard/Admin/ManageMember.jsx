@@ -75,7 +75,7 @@ const ManageMember = () => {
     return (
         <div>
             <div>
-                <h2>Total Members {members.length}</h2>
+                <h2 className="text-center text-3xl font-bold mb-8 text-blue-500 bg-base-200 py-4 ">ALL MEMBER LIST</h2>
 
             </div>
             <div>
@@ -97,7 +97,7 @@ const ManageMember = () => {
                                     <th>{index + 1}</th>
                                     <td>{member.name}</td>
                                     <td>{member.email}</td>
-                                    <td><button onClick={() => handleremovemember(member)}>Remove </button></td>
+                                    <td><button className="buttons py-1" onClick={() => handleremovemember(member)}>Remove </button></td>
                                 </tr>
                             </tbody>)
                         }

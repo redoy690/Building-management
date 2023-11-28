@@ -32,26 +32,31 @@ const MakeAnnouncement = () => {
 
 
     return (
-        <div className="w-full md:w-full lg:w-1/2" onSubmit={handleSubmit(onSubmit)}>
-            <form className="card-body">
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Title</span>
-                    </label>
-                    <input {...register("title", { required: true })} type="text" placeholder="Title" className="input input-bordered" required />
-                </div>
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Description</span>
-                    </label>
-                    <textarea type="text" {...register("description", { required: true })} className="textarea textarea-bordered h-[250px]" placeholder="Announcement Description"></textarea>
-                </div>
-                <div className="form-control mt-6">
+        <>
+            <h2 className="text-center text-2xl font-bold">Start New Announcement Here</h2>
+            <div className="flex justify-center">
+                <div className="w-full md:w-full lg:w-1/2" onSubmit={handleSubmit(onSubmit)}>
+                    <form className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Title</span>
+                            </label>
+                            <input {...register("title", { required: true })} type="text" placeholder="Title" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Description</span>
+                            </label>
+                            <textarea type="text" {...register("description", { required: true })} className="textarea textarea-bordered h-[250px]" placeholder="Announcement Description"></textarea>
+                        </div>
+                        <div className="form-control mt-6">
 
-                    <input type="submit" className="btn btn-primary" value="Submit" />
+                            <input type="submit" className="btn btn-primary" value="Submit" />
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
+            </div>
+        </>
     );
 };
 

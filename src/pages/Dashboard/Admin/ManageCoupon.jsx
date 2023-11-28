@@ -35,10 +35,14 @@ const ManageCoupon = () => {
 
     return (
         <div>
-            {allcoupon.length}
+
 
             <div className="mt-10">
-                <a href="#my_modal_8" className="btn btn-outline">Add New Coupon</a>
+
+                <div className="flex ">
+                    <p className="text-3xl font-bold mr-10">Start New Offer </p>
+                    <a href="#my_modal_8" className="btn btn-outline btn-primary text-xl">Add New Coupon</a>
+                </div>
                 {/* Put this part before </body> tag */}
                 <div className="modal" role="dialog" id="my_modal_8">
                     <div className="modal-box">
@@ -80,7 +84,7 @@ const ManageCoupon = () => {
                 </div>
                 <div className="grid grid-cols-1 mt-4  gap-4">
                     {
-                        allcoupon.map(coupon =><ManageCouponCard key={coupon._id} coupon={coupon} refetch={refetch}></ManageCouponCard> )
+                        allcoupon.map(coupon => <ManageCouponCard key={coupon._id} coupon={coupon} refetch={refetch}></ManageCouponCard>)
                     }
                 </div>
             </div>

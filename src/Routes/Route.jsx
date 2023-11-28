@@ -4,7 +4,7 @@ import Home from "../pages/Home/Home/Home";
 import Registration from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import Apartment from "../pages/Apartment/Apartment";
-import PrivateRoute from "./PrivateRoute";
+
 import Dashboard from "../Layout/Dashboard";
 import UserProfile from "../pages/Dashboard/User/userProfile";
 import UserAnnouncement from "../pages/Dashboard/User/UserAnnouncement";
@@ -22,6 +22,8 @@ import Contactus from "../pages/Contactus/Contactus";
 import AdminRoute from "./AdminRoute";
 import MemberRoute from "./MemberRoute";
 import UserRoute from "./UserRoute";
+import Errorpage from "../pages/Errorpage/Errorpage";
+import AddApartment from "../pages/Dashboard/Admin/AddApartment";
 
 
 
@@ -29,6 +31,7 @@ import UserRoute from "./UserRoute";
 export const router = createBrowserRouter([
   {
     path: "/",
+    errorElement:<Errorpage></Errorpage>,
     element: <Main></Main>,
     children: [
       {
@@ -45,7 +48,8 @@ export const router = createBrowserRouter([
       },
       {
         path: '/apartment',
-        element: <Apartment></Apartment>
+        element: <Apartment></Apartment>,
+        loader:() => fetch('http://localhost:5000/apartmentcount')
       },
       {
         path: '/contactus',
@@ -83,6 +87,10 @@ export const router = createBrowserRouter([
           {
             path: '/dashboard/memberannouncement',
             element:<MemberRoute><MemberAnnouncement></MemberAnnouncement></MemberRoute>
+          },
+          {
+            path: '/dashboard/addapartment',
+            element: <AdminRoute><AddApartment></AddApartment></AdminRoute>
           },
           {
             path: '/dashboard/adminprofile',

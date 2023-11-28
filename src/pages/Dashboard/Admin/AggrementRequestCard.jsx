@@ -142,8 +142,8 @@ const AggrementRequestCard = ({ item, refetch }) => {
                     status == 'pending'
                         ?
                         <div className="flex justify-between mx-12 mb-10">
-                            <button onClick={() => handleaccept(_id)}>Accept</button>
-                            <button onClick={() => handlereject(_id)}>Reject</button>
+                            <button className="btn bg-green-400 text-white font-bold text-2xl hover:bg-white hover:text-green-400 hover:border-green-400" onClick={() => handleaccept(_id)}>ACCEPT</button>
+                            <button className="btn bg-red-600 text-white font-bold text-2xl hover:bg-white hover:text-red-600 hover:border-red-600" onClick={() => handlereject(_id)}>REJECT</button>
                         </div>
                         :
                         ''

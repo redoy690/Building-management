@@ -9,7 +9,7 @@ import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 
 const ApartmentCard = ({ apartment }) => {
-    const axiosSecure=useAxiosSecure()
+    const axiosSecure = useAxiosSecure()
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
     const { blockName, image, floorNo, apartmentNo, rent, _id } = apartment
@@ -63,18 +63,28 @@ const ApartmentCard = ({ apartment }) => {
     return (
         <div>
             <div className="card bg-base-100 shadow-xl">
-                <figure><img src={image} alt="Shoes" className="w-full" /></figure>
+                <figure><img src={image} alt="Shoes" className="w-full h-[450px]" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">Block Name: {blockName}</h2>
-                    <p>Floor No: {floorNo}</p>
-                    <p>Apartment No: {apartmentNo}</p>
-                    <p>Rent: {rent}</p>
+                    <h2 className="card-title text-2xl font-bold">Apartment No: {apartmentNo}</h2>
+                    <div className='flex'>
+                        <h2 className='text-xl font-bold w-[130px]'>Block Name</h2>
+                        <h2 className='text-xl font-bold '>: {blockName}</h2>
+                    </div>
+                    <div className='flex'>
+                        <h2 className='text-xl font-bold w-[130px]'>Floor No</h2>
+                        <h2 className='text-xl font-bold '>: {floorNo}</h2>
+                    </div>
+
+                    <div className='flex'>
+                        <h2 className='text-xl font-bold w-[130px]'>Rent</h2>
+                        <h2 className='text-xl font-bold '>: {rent}$</h2>
+                    </div>
                     <div className="card-actions mt-4">
-                        <button className="btn btn-primary btn-outline font-bold" onClick={() => handleaggrement(_id)}>Aggrement</button>
+                        <button className="btn btn-primary btn-outline font-bold buttons" onClick={() => handleaggrement(_id)}>Aggrement</button>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     );
 };

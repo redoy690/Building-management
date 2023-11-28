@@ -25,7 +25,8 @@ const CheckoutForm = () => {
     const { _id, apartmentNo, floorNo, blockName, rent, image, apId } = allproduct || ''
     const amount = localStorage.getItem('taka')
     const month = localStorage.getItem('month')
-    console.log(amount)
+    const newamount=parseInt(amount)
+    
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -85,7 +86,7 @@ const CheckoutForm = () => {
 
                     email: user.email,
                     username: user.displayName,
-                    paymentamount: amount,
+                    paymentamount: newamount ,
                     paymentId: paymentIntent.id,
                     paymentdate: moment().format('D-MMM-YY, h:mma'),
                     month: month,
@@ -105,9 +106,8 @@ const CheckoutForm = () => {
                         console.log(res)
                     })
 
-                const booking = "closed"
-                const bookingstatus = { booking }
-                axiosSecure.put(`/apartment/${apId}`, bookingstatus)
+                
+                axiosSecure.delete(`/apartment/${apId}`)
                     .then(res => {
                         console.log(res)
                     })
@@ -146,7 +146,7 @@ const CheckoutForm = () => {
                         },
                     }}
                 />
-                <button className='mt-10' type="submit" disabled={!stripe || !clientSecret}>
+                <button className='buttons py-2 mt-10' type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
                 <p className='text-red-600 mt-4'>{error}</p>

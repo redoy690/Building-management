@@ -14,7 +14,7 @@ const UserAnnouncement = () => {
     })
     return (
         <div className="">
-            user announceemnt:{announcement.length}
+            
             <div>
                 {
                     announcement.map(item =>

@@ -10,7 +10,7 @@ const MakePayment = () => {
     const email = user?.email || ''
 
     const [pendingapartment] = usePendingApartment()
-    const allproduct = pendingapartment.find(item => item.email == email && item.status=="checked")
+    const allproduct = pendingapartment.find(item => item.email == email && item.status == "checked")
     const { apartmentNo, floorNo, blockName, rent } = allproduct || ''
 
     const handlepayment = () => {
@@ -25,7 +25,11 @@ const MakePayment = () => {
             {
                 allproduct ?
                     <div>
-                        <div className="">
+                        <div >
+                            <div className=" grid grid-cols-1 md:grid-cols-2 gap-4 w-[250px] md:w-[255px] mt-4">
+                                <h2 className="text-2xl md:text-3xl font-bold  ">EMAIL: </h2>
+                                <input type="text" placeholder="Type here" defaultValue={email} readOnly className="input pl-6 text-md md:text-xl font-bold input-bordered input-info h-[44px] w-[250px]  md:w-[350px]" />
+                            </div>
                             <div className="flex gap-4 mt-4">
                                 <h2 className="text-2xl md:text-3xl font-bold w-[200px] md:w-[270px] ">APARTMENT NO: </h2>
                                 <input type="text" placeholder="Type here" defaultValue={apartmentNo} readOnly className="input pl-6 text-xl font-bold input-bordered input-info h-[44px] w-[80px] md:w-[200px]" />
@@ -39,7 +43,7 @@ const MakePayment = () => {
                                 <input type="text" placeholder="Type here" defaultValue={blockName} readOnly className="input pl-6 text-xl font-bold input-bordered input-info h-[44px]  w-[80px]  md:w-[200px]" />
                             </div>
                             <div className="flex gap-4 mt-4">
-                                <h2 className="text-2xl md:text-3xl font-bold w-[200px] md:w-[270px] ">RENT : </h2>
+                                <h2 className="text-2xl md:text-3xl font-bold w-[200px] md:w-[270px] ">RENT ($): </h2>
                                 <input type="text" placeholder="Type here" defaultValue={rent} readOnly className="input  text-xl font-bold input-bordered input-info h-[44px]  w-[80px]  md:w-[200px]" />
                             </div>
                             <div>
@@ -61,7 +65,7 @@ const MakePayment = () => {
                                         <option>December</option>
                                     </select>
                                     <Link to='/dashboard/confirm'>
-                                        <button onClick={handlepayment} className="ml-8 mt-4">Pay</button>
+                                        <button onClick={handlepayment} className="ml-8 buttons py-2 mt-4">Pay</button>
                                     </Link>
                                 </div>
                             </div>
@@ -70,7 +74,7 @@ const MakePayment = () => {
                     </div>
                     :
                     <div>
-                       <p className="text-center mt-[20%] text-green-600 text-2xl">You do not have any pending apartment for payment,</p>
+                        <p className="text-center mt-[20%] text-green-600 text-2xl">You do not have any pending apartment for payment,</p>
                     </div>
             }
         </div>

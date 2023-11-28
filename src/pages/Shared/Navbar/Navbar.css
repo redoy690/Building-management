@@ -1,5 +1,5 @@
-button {
-    padding: 1.3em;
+.buttons {
+    
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2.5px;
@@ -15,14 +15,14 @@ button {
     width: 140px;
   }
   
-  button:hover {
+  .buttons:hover {
     background-color: #23c483;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     color: #fff;
     transform: translateY(-7px);
   }
   
-  button:active {
+  .buttons:active {
     transform: translateY(-1px);
   }
 
