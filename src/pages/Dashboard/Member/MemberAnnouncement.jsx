@@ -13,7 +13,7 @@ const MemberAnnouncement = () => {
     })
     return (
         <div>
-            member announceemnt:{announcement.length}
+            
             <div>
                 {
                     announcement.map(item =>

@@ -103,7 +103,7 @@ const AggrementRequestCard = ({ item, refetch }) => {
                 <h1 className="mx-auto mt-4 text-2xl font-bold">Apartment No: {apartmentNo}</h1>
                 <div className="card-body ">
                     <div className="flex">
-                        <div className="w-3/4">
+                        <div className="w-full md:w-3/4">
                             <div className="flex text-xl font-bold">
                                 <h2 className="w-[80px]">Rent</h2>
                                 <h2>: {rent}$</h2>
@@ -121,19 +121,19 @@ const AggrementRequestCard = ({ item, refetch }) => {
                                 <h2>: {status}</h2>
                             </div>
                             <div className="flex ">
-                                <h2 className="w-[80px]">Req Date: </h2>
-                                <h2>: {date}</h2>
+                                <h2 className="w-[80px]">Req Date </h2>
+                                <h2 className="mt-1 md:mt-0 text-sm md:text-base">: {date}</h2>
                             </div>
                             <div className="flex ">
                                 <h2 className="w-[80px]">UserName </h2>
-                                <h2>: {name}</h2>
+                                <h2 className="mt-1 md:mt-0 text-sm md:text-base">: {name}</h2>
                             </div>
-                            <div className="flex ">
-                                <h2 className="w-[80px]">UserEmail </h2>
-                                <h2>: {email}</h2>
+                            <div className="md:flex ">
+                                <h2 className="">UserEmail </h2>
+                                <h2 className="text-sm md:text-base ml-3     "> : {email}</h2>
                             </div>
                         </div>
-                        <div className="w-1/4">
+                        <div className="w-0 md:w-1/4">
                             <img src={image} alt="" />
                         </div>
                     </div>

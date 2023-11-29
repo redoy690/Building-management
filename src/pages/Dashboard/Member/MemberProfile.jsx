@@ -13,7 +13,7 @@ const MemberProfile = () => {
     const name = user?.displayName || ''
     console.log(email)
     const [pendingapartment] = usePendingApartment()
-    const mypendingapartment = pendingapartment.filter(item => item.email == email)
+    const mypendingapartment = pendingapartment.filter(item => item.email == email && item.status=="checked")
     const { data: allpayment = [] } = useQuery({
         queryKey: ['allpayment'],
         queryFn: async () => {
@@ -29,9 +29,10 @@ const MemberProfile = () => {
            
             <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">My Profile Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 my-10">
-                <div className="mt-[10%]">
+                <div className="mt-[10px] text-xl">
                     <h2 >User Name: {name}</h2>
-                    <h2 >Email: {email}</h2>
+                    <h2 className="mt-2" >Email: {email}</h2>
+                    <h2 className="mt-2">Profile Status: Member</h2>
                 </div>
                 <div>
                     <h2>Profile Picture:</h2>

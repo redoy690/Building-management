@@ -75,7 +75,7 @@ const Navbar = () => {
                                         user.displayName ?
                                             <li  className=""><a><button className='p-2 buttons'>{user.displayName}</button></a></li>
                                             :
-                                            <li className=""><button className='p-2 buttons'>Username</button></li>
+                                            <li className=""><a><button className='p-2 buttons'>Username</button></a></li>
                                     }
 
                                     <Link to="/dashboard" className="mt-4 ml-4" ><button className='buttons p-2'>Dashboard</button> </Link>

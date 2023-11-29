@@ -18,7 +18,7 @@ const MakePaymentConfirm = () => {
     const email = user?.email || ''
     const [pendingapartment] = usePendingApartment()
     const allproduct = pendingapartment.find(item => item.email == email)
-    const { apartmentNo, floorNo, blockName, rent } = allproduct || ''
+    const {  rent } = allproduct || ''
     const month = localStorage.getItem('month')
     
     const totalAmount = rent - discount

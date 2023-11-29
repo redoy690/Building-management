@@ -60,10 +60,10 @@ const Apartment = () => {
                 
                 <button onClick={handlePrev}>Prev</button>
                 {
-                    pages.map(page => <button className={currentPage === page && 'selected'} onClick={() => setCurrentPage(page)} key={page}>{page}</button>)
+                    pages.map(page => <button className={currentPage === page ? 'selected' : ''} onClick={() => setCurrentPage(page)} key={page}>{page}</button>)
                 }
                 <button onClick={handleNext}>Next</button>
-                <select value={itemPerPage} onChange={handleItemsPerpage}>
+                <select className='border-4  p-2  rounded-xl' value={itemPerPage} onChange={handleItemsPerpage}>
                     <option value="4">4</option>
                     <option value="6">6</option>
                     <option value="8">8</option>

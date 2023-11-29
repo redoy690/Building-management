@@ -24,6 +24,7 @@ import MemberRoute from "./MemberRoute";
 import UserRoute from "./UserRoute";
 import Errorpage from "../pages/Errorpage/Errorpage";
 import AddApartment from "../pages/Dashboard/Admin/AddApartment";
+import AllPaymentHistory from "../pages/Dashboard/Admin/AllPaymentHistory";
 
 
 
@@ -99,6 +100,10 @@ export const router = createBrowserRouter([
           {
             path: '/dashboard/managemember',
             element: <AdminRoute><ManageMember></ManageMember></AdminRoute>
+          },
+          {
+            path: '/dashboard/allpaymenthistory',
+            element: <AdminRoute><AllPaymentHistory></AllPaymentHistory></AdminRoute>
           },
           {
             path: '/dashboard/makeannouncement',

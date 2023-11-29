@@ -1,18 +1,17 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../../../Providers/AuthProvider";
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
+import { useState } from 'react';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 
-const PaymentHistory = () => {
+const AllPaymentHistory = () => {
     const [search, setSearch] = useState('')
-    const { user } = useContext(AuthContext)
-    const email = user?.email || ''
+    
+    
     const axiosSecure = useAxiosSecure()
     const { data: payments = [], refetch } = useQuery({
-        queryKey: ['payments', email],
+        queryKey: ['payments'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/payments/${email}`)
+            const res = await axiosSecure.get(`/payments`)
             return res.data
         }
     })
@@ -23,15 +22,11 @@ const PaymentHistory = () => {
         setSearch(input)
     }
 
-    // const hanleall (e) =>{
-    //     e.preventDefault()
-    //     setSearch('')
-    // }
+    
 
     const hanletoall = () => {
         setSearch('')
     }
-
     refetch()
     return (
         <div>
@@ -62,7 +57,7 @@ const PaymentHistory = () => {
                         <h2 className=" text-3xl font-bold text-blue-500 pt-6">Search Result: {search}</h2>
                         {/* <input type="submit" onSubmit={hanleall} value="All Result" className="bg-blue-500 p-2 rounded text-white font-semibold hover:bg-blue-800 transition-colors" /> */}
                         <div >
-                        
+
                             <button className="h-[23px] my-4 p-0  w-[100px] text-[8px] buttons" onClick={hanletoall}>ALL RESULT</button>
                         </div>
 
@@ -110,4 +105,4 @@ const PaymentHistory = () => {
     );
 };
 
-export default PaymentHistory;
+export default AllPaymentHistory;

@@ -46,12 +46,20 @@ const AdminProfile = () => {
             <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">Admin Profile Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 my-10">
 
-                <div className="mt-[10%]">
+                <div className="mt-[10px]">
                     <h2 >User Name: {name}</h2>
                     <h2 className="mt-4" >Email: {email}</h2>
-                    <Link to='/dashboard/addapartment'>
-                        <button className="mt-4 btn btn-outline btn-primary">Add New Apartment</button>
-                    </Link>
+                    <h2 className="mt-4" >Profile Status: Admin</h2>
+                    <div>
+                        <Link to='/dashboard/addapartment'>
+                            <button className="mt-4 btn btn-outline w-[170px] btn-primary">Add New Apartment</button>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to='/dashboard/allpaymenthistory'>
+                            <button className="mt-4 btn btn-outline w-[170px] btn-primary">Payment History</button>
+                        </Link>
+                    </div>
                 </div>
                 <div>
                     <h2>Profile Picture:</h2>
