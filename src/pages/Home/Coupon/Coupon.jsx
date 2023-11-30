@@ -8,7 +8,7 @@ const Coupon = () => {
         <div className=' '>
            
             <div className="grid grid-cols-1 my-4 coupon  gap-4">
-                <div className='bg-red-200 my-4'>
+                <div className='bg-gray-300 my-4'>
                     
                     <div className='w-[80%] mx-auto my-8'>
                     <h2 className='text-4xl my-4 py-4 font-bold text-white text-center border-4 border-white'>Use Coupon Code For Discount</h2>
