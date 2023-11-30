@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
       {
         path: '/apartment',
         element: <Apartment></Apartment>,
-        loader:() => fetch('http://localhost:5000/apartmentcount')
+        loader:() => fetch('https://y-rho-livid.vercel.app/apartmentcount')
       },
       {
         path: '/contactus',

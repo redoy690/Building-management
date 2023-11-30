@@ -31,7 +31,7 @@ const ManageMember = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                // fetch(`http://localhost:5000/users/${member._id}`, {
+                // fetch(`https://y-rho-livid.vercel.app/users/${member._id}`, {
                 //     method: 'PUT',
                 //     headers: {
                 //         'content-type': 'application/json'
@@ -75,7 +75,7 @@ const ManageMember = () => {
     return (
         <div>
             <div>
-                <h2 className="text-center text-3xl font-bold mb-8 text-blue-500 bg-base-200 py-4 ">ALL MEMBER LIST</h2>
+                <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">ALL MEMBER LIST</h2>
 
             </div>
             <div>

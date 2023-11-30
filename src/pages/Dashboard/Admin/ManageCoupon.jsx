@@ -80,7 +80,7 @@ const ManageCoupon = () => {
 
             <div>
                 <div className="mt-12">
-                    <h2 className="text-3xl font-bold text-center bg-slate-200 py-8">ALL RUNNING COUPON LIST</h2>
+                    <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">ALL RUNNING COUPON LIST</h2>
                 </div>
                 <div className="grid grid-cols-1 mt-4  gap-4">
                     {

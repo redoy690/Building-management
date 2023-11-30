@@ -33,7 +33,7 @@ const MakeAnnouncement = () => {
 
     return (
         <>
-            <h2 className="text-center text-2xl font-bold">Start New Announcement Here</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">START NEW ANNOUNCEMENT</h2>
             <div className="flex justify-center">
                 <div className="w-full md:w-full lg:w-1/2" onSubmit={handleSubmit(onSubmit)}>
                     <form className="card-body">

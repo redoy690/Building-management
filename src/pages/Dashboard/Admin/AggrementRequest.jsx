@@ -14,7 +14,7 @@ const AggrementRequest = () => {
     const rejecteditem = pendingapartment.filter(item => item.status == 'rejected')
     return (
         <div>
-            <h2 className="mb-10">All Aggrement Request are here</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">ALL AGREEMENT REQUEST</h2>
             {/* <div role="tablist" className="tabs tabs-bordered w-1/3 mx-auto">
                 <a role="tab" className="tab">PENDING</a>
                 <a role="tab" className="tab tab-active">CHECKED</a>

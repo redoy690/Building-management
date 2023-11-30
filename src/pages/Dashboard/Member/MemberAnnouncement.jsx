@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import UseAxiosPublic from "../../../hooks/useAxiosPublic";
+
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const MemberAnnouncement = () => {
-    const axiosPublic = UseAxiosPublic()
+    const axiosSecure = useAxiosSecure()
     const { data: announcement = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/announcement')
+            const res = await axiosSecure.get('/announcement')
             return res.data
         }
     })

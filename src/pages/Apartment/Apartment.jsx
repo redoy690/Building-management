@@ -15,7 +15,7 @@ const Apartment = () => {
     const [allapartment] = useApartment()
  
     useEffect(()=>{
-        fetch(`http://localhost:5000/apartment?page=${currentPage}&size=${itemPerPage}`)
+        fetch(`https://y-rho-livid.vercel.app/apartment?page=${currentPage}&size=${itemPerPage}`)
         .then(res=>res.json())
         .then(data=>setProducts(data))
     },[currentPage,itemPerPage])

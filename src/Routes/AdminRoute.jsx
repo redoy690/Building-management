@@ -10,8 +10,8 @@ const AdminRoute = ({children}) => {
     const location = useLocation()
     console.log(location.pathname)
      if(loading || isAdminLoading){
-        // return <span className="loading loading-spinner loading-lg  ml-[50%] mt-[10%] mb-40"></span> 
-        return
+        return <span className="loading loading-spinner loading-lg  ml-[50%] mt-[10%] mb-40"></span> 
+        
      }
  
     if(user && isAdmin){

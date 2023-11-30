@@ -43,7 +43,7 @@ const AdminProfile = () => {
     return (
         <div>
 
-            <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">Admin Profile Information</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">ADMIN PROFILE INFORMATION</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 my-10">
 
                 <div className="mt-[10px]">
@@ -71,7 +71,7 @@ const AdminProfile = () => {
 
 
 
-            <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">Apartment Information</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">APARTMENT INFORMATION</h2>
 
 
 
