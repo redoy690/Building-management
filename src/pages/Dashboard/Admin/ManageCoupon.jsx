@@ -39,7 +39,7 @@ const ManageCoupon = () => {
 
             <div className="mt-10">
 
-                <div className="flex ">
+                <div className="md:flex ">
                     <p className="text-3xl font-bold mr-10">Start New Offer </p>
                     <a href="#my_modal_8" className="btn btn-outline btn-primary text-xl">Add New Coupon</a>
                 </div>

@@ -20,7 +20,7 @@ const Dashboard = () => {
     const [isAdmin] = useAdmin()
     return (
         <div className='flex gap-0 md:gap-2  my-8 '>
-            <div className=' w-16 md:w-16 lg:w-64  min-h-screen bg-blue-100'>
+            <div className=' w-16 md:w-16 lg:w-[260px]  min-h-screen bg-blue-100'>
 
 
 

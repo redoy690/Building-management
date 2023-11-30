@@ -52,12 +52,12 @@ const AdminProfile = () => {
                     <h2 className="mt-4" >Profile Status: Admin</h2>
                     <div>
                         <Link to='/dashboard/addapartment'>
-                            <button className="mt-4 btn btn-outline w-[170px] btn-primary">Add New Apartment</button>
+                            <button className="mt-4 btn btn-outline w-[180px] btn-primary">Add New Apartment</button>
                         </Link>
                     </div>
                     <div>
                         <Link to='/dashboard/allpaymenthistory'>
-                            <button className="mt-4 btn btn-outline w-[170px] btn-primary">Payment History</button>
+                            <button className="mt-4 btn btn-outline w-[180px] btn-primary">Payment History</button>
                         </Link>
                     </div>
                 </div>
