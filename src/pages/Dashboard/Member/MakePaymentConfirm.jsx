@@ -58,20 +58,20 @@ const MakePaymentConfirm = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="card border-2 pl-2 pb-2 md:p-4">
                     <div className="flex gap-4 mt-4">
-                        <h2 className="text-xl md:text-3xl font-bold w-[170px] md:w-[250px]  ">Rent  Month</h2>
-                        <h2 className="text-xl md:text-3xl font-bold">: {month}</h2>
+                        <h2 className="text-base md:text-2xl font-bold w-[140px] md:w-[250px]  ">Rent  Month</h2>
+                        <h2 className="text-base md:text-2xl font-bold">: {month}</h2>
                     </div>
                     <div className="flex gap-4 mt-4">
-                        <h2 className="text-xl md:text-3xl font-bold w-[170px] md:w-[250px]  ">Rent  Amount</h2>
-                        <h2 className="text-xl md:text-3xl font-bold">: {rent}$</h2>
+                        <h2 className="text-base md:text-2xl font-bold w-[140px] md:w-[250px]  ">Rent  Amount</h2>
+                        <h2 className="text-base md:text-2xl font-bold">: {rent}$</h2>
                     </div>
                     <div className="flex gap-4 mt-4">
-                        <h2 className="text-xl md:text-3xl font-bold w-[170px] md:w-[250px]  ">Coupon Discount</h2>
-                        <h2 className="text-xl md:text-3xl font-bold">: {discount}$</h2>
+                        <h2 className="text-base md:text-2xl font-bold w-[140px] md:w-[250px]  ">Coupon Discount</h2>
+                        <h2 className="text-base md:text-2xl font-bold">: {discount}$</h2>
                     </div>
                     <div className="flex gap-4 mt-4">
-                        <h2 className="text-xl md:text-3xl font-bold w-[170px] md:w-[250px]  ">Total  Amount</h2>
-                        <h2 className="text-xl md:text-3xl font-bold">: {totalAmount}$</h2>
+                        <h2 className="text-base md:text-2xl font-bold w-[140px] md:w-[250px]  ">Total  Amount</h2>
+                        <h2 className="text-base md:text-2xl font-bold">: {totalAmount}$</h2>
                     </div>
 
                 </div>
