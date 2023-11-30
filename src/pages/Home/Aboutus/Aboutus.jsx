@@ -2,16 +2,17 @@ import useApartment from "../../../hooks/useApartment";
 
 
 const Aboutus = () => {
-  const [apartment]=useApartment()
+  const [apartment] = useApartment()
   return (
     <div>
       <div className="flex items-center justify-center bg-gray-300 ">
         <div className="flex-col items-center justify-center ">
           <div className="flex">
             <div className="flex lg:flex-row flex-col p-4 space-x-4 space-y-4 max-w-7xl justify-around w-full h-auto lg:h-60 items-center ">
-              <div className="border rounded h-40 w-[100%] md:w-72 flex items-center justify-center ml-4 lg:px-0 px-6 bg-white shadow-xl md:mt-4">
+              <div className="border rounded h-40 w-[100%] md:w-72 flex items-center justify-center ml-4 lg:px-0 px-6 bg-white shadow-xl md:mt-4" data-aos="fade-up"
+                data-aos-duration="3000">
                 <div className="flex-col space-y-2 items-center px-0 md:px-6">
-                  <div className="flex items-center justify-between space-x-6">
+                  <div className="flex items-center justify-between space-x-6 ">
                     <div className="flex items-center space-x-1 ">
                       <div className="text-lg font-medium text-violet-500"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></div>
                       <div className="text-sm font-medium text-gray-500">Available </div>
@@ -25,7 +26,8 @@ const Aboutus = () => {
                   </div>
                 </div>
               </div>
-              <div className="border rounded h-40 w-[100%] md:w-72 flex items-center justify-center ml-4 lg:px-0 px-6 bg-white shadow-xl">
+              <div className="border rounded h-40 w-[100%] md:w-72 flex items-center justify-center ml-4 lg:px-0 px-6 bg-white shadow-xl" data-aos="fade-up"
+                data-aos-duration="3000">
                 <div className="flex-col space-y-2 items-center px-0 md:px-6">
                   <div className="flex items-center justify-between space-x-6">
                     <div className="flex items-center space-x-1 ">
@@ -41,7 +43,8 @@ const Aboutus = () => {
                   </div>
                 </div>
               </div>
-              <div className="border rounded h-40 w-[100%] md:w-72 flex items-center justify-center ml-4 lg:px-0 px-6 bg-white shadow-xl">
+              <div className="border rounded h-40 w-[100%] md:w-72 flex items-center justify-center ml-4 lg:px-0 px-6 bg-white shadow-xl" data-aos="fade-up"
+                data-aos-duration="3000">
                 <div className="flex-col space-y-2 items-center px-0 md:px-6">
                   <div className="flex items-center justify-between space-x-6">
                     <div className="flex items-center space-x-1 ">
