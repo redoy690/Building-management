@@ -52,7 +52,7 @@ const MemberProfile = () => {
             {
                 mypendingapartment.length > 0 &&
                 <>
-                    <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">My Pending Aggrement List</h2>
+                    <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">My Pending Agreement List</h2>
                     <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
                         {
                             mypendingapartment.map(apartment =>
@@ -117,7 +117,7 @@ const MemberProfile = () => {
                 mypaymentApartment.length > 0 &&
                 <>
 
-                    <h2 className="text-3xl font-bold text-center my-8 bg-slate-300  py-6">My Confirmed Aggrement List</h2>
+                    <h2 className="text-3xl font-bold text-center my-8 bg-slate-300  py-6">My Confirmed Agreement List</h2>
                     <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
                         {
                             mypaymentApartment.map(apartment =>

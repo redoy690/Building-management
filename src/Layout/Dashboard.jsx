@@ -80,7 +80,7 @@ const Dashboard = () => {
                             <li><NavLink to="/dashboard/adminprofile"><FaHome></FaHome>Admin Profile</NavLink></li>
                             <li><NavLink to="/dashboard/managemember"><FaCircleUser />Manage Members</NavLink></li>
                             <li><NavLink to="/dashboard/makeannouncement"><FaMessage />Make Announcement</NavLink></li>
-                            <li><NavLink to="/dashboard/aggrementrequest"><FaFileInvoiceDollar />Aggrement Requests</NavLink></li>
+                            <li><NavLink to="/dashboard/aggrementrequest"><FaFileInvoiceDollar />Agreement Requests</NavLink></li>
                             <li><NavLink to="/dashboard/managecoupon"><FaMoneyCheck />Manage Coupons</NavLink></li>
                         </ul>
 

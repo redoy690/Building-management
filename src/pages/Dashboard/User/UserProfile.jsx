@@ -30,7 +30,7 @@ const UserProfile = () => {
                 </div>
             </div>
 
-            <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">My Aggrement request List</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 bg-slate-300 py-6">My Agreement request List</h2>
             <div>
                 {
                     mypendingApartment.length ?

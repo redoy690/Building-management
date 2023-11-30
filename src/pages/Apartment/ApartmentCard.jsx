@@ -98,7 +98,7 @@ const ApartmentCard = ({ apartment }) => {
                         <h2 className='text-xl font-bold '>: {rent}$</h2>
                     </div>
                     <div className="card-actions mt-4">
-                        <button className="btn btn-primary btn-outline font-bold buttons" onClick={() => handleaggrement(_id)}>Aggrement</button>
+                        <button className="btn btn-primary btn-outline font-bold buttons" onClick={() => handleaggrement(_id)}>Agreement</button>
                     </div>
                 </div>
             </div>
